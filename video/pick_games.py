@@ -6,16 +6,28 @@
 - 开场：大乱斗里事件最集中的那段（同一局），只截一小段。
 
 .venv/bin/python video/pick_games.py results/games.jsonl.gz
+
+用自己跑的结果时先设 ARENA_RESULTS=你的结果目录，挑出来的对局和 picks.json 会写进那个目录，不动仓库里的 results/。
 """
 import gzip
 import json
+import os
 import statistics
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+RES = Path(os.environ.get("ARENA_RESULTS", ROOT / "results")).resolve()
 sys.path.insert(0, str(ROOT))
 from arena.export import export  # noqa: E402
+
+
+def rel(p):
+    """仓库里的文件存相对路径，结果目录在仓库外就存绝对路径。"""
+    try:
+        return str(p.relative_to(ROOT))
+    except ValueError:
+        return str(p)
 
 
 def spearman(a, b):
@@ -31,7 +43,7 @@ def load(path):
             yield json.loads(line)
 
 
-def main(path, ratings_path=ROOT / "results" / "ratings.json", out_dir=ROOT / "results" / "games"):
+def main(path, ratings_path=RES / "ratings.json", out_dir=RES / "games"):
     out_dir = Path(out_dir).resolve()
     R = json.loads(Path(ratings_path).read_text())
     order = R["order"]
@@ -53,7 +65,7 @@ def main(path, ratings_path=ROOT / "results" / "ratings.json", out_dir=ROOT / "r
         med = statistics.median(r["turns"] for r in duels)
         d = min(duels, key=lambda r: (abs(r["turns"] - med), r["round"]))
         picks["duel_top"] = {"round": d["round"], "seed": d["seed"], "seats": d["seats"], "turns": d["turns"],
-                             "place": d["place"], "file": str((out_dir / "duel_top.json").relative_to(ROOT)),
+                             "place": d["place"], "file": rel(out_dir / "duel_top.json"),
                              "why": f"总榜第 1、2 名的 {len(duels)} 局单挑里，回合数最接近中位数（{med:g}）的一局"}
         (out_dir / "duel_top.json").write_text(json.dumps(export(d)))
         wins = sum(1 for r in duels if r["place"][r["seats"].index(top1)] < r["place"][r["seats"].index(top2)])
@@ -64,7 +76,7 @@ def main(path, ratings_path=ROOT / "results" / "ratings.json", out_dir=ROOT / "r
         d = min(duels34, key=lambda r: (abs(r["turns"] - med), r["round"]))
         w3 = sum(1 for r in duels34 if r["place"][r["seats"].index(top3)] < r["place"][r["seats"].index(top4)])
         picks["duel_34"] = {"round": d["round"], "seed": d["seed"], "seats": d["seats"], "turns": d["turns"], "place": d["place"],
-                            "file": str((out_dir / "duel_34.json").relative_to(ROOT)),
+                            "file": rel(out_dir / "duel_34.json"),
                             "why": f"总榜第 3、4 名的 {len(duels34)} 局单挑里，回合数最接近中位数（{med:g}）的一局",
                             "record": {"games": len(duels34), "top3_wins": w3,
                                        "draws": sum(1 for r in duels34 if r["place"][0] == r["place"][1])}}
@@ -79,7 +91,7 @@ def main(path, ratings_path=ROOT / "results" / "ratings.json", out_dir=ROOT / "r
     if best:
         m = best[1]["_line"]
         picks["melee_typical"] = {"round": m["round"], "seed": m["seed"], "seats": m["seats"], "turns": m["turns"],
-                                  "place": m["place"], "spearman": best[0][0], "file": str((out_dir / "melee_typical.json").relative_to(ROOT)),
+                                  "place": m["place"], "spearman": best[0][0], "file": rel(out_dir / "melee_typical.json"),
                                   "why": f"{len(melees)} 局大乱斗里，名次和总榜最一致的一局（Spearman {best[0][0]}）"}
         (out_dir / "melee_typical.json").write_text(json.dumps(export(m)))
     # 开场：千问饿死在第 100 回合、一口没吃、冠军赢下的大乱斗里，名次和总榜最一致的一局
@@ -94,7 +106,7 @@ def main(path, ratings_path=ROOT / "results" / "ratings.json", out_dir=ROOT / "r
     if cand:
         rho, _, c = max(cand, key=lambda x: (round(x[0], 3), x[1]))
         n_starve = sum(1 for r in melees if (lambda d: d and d[1] == "starve" and d[0] == 100)(r["death"][r["seats"].index("qwen")]))
-        picks["cold"] = {"round": c["round"], "seed": c["seed"], "who": "qwen", "color_word": "粉色", "file": str((out_dir / "cold.json").relative_to(ROOT)),
+        picks["cold"] = {"round": c["round"], "seed": c["seed"], "who": "qwen", "color_word": "粉色", "file": rel(out_dir / "cold.json"),
                          "why": f"千问在第 100 回合饿死、一口没吃、总榜第一赢下的 {len(cand)} 局大乱斗里，名次和总榜最一致的一局（Spearman {rho:.3f}）",
                          "qwen_starve_at_100": n_starve, "melees": len(melees)}
         (out_dir / "cold.json").write_text(json.dumps(export(c["_line"])))

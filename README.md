@@ -52,7 +52,7 @@
 
 ## 自己跑
 
-需要 Python 3.11 以上。比赛、自检和评分只用标准库，不用装包。
+需要 Python 3.11 以上（实测用的是 3.13）。比赛、自检和评分只用标准库，不用装包。
 
 ```bash
 python -m arena.selfcheck bots/opus.py
@@ -65,6 +65,8 @@ python -m arena.tournament --rounds 2 --workers 8 --out my-games.jsonl.gz
 ```bash
 python -m arena.analyze my-games.jsonl.gz --out my-results
 ```
+
+一轮是 121 局（55 对单挑各换一次座位共 110 局，加 11 局轮换座位的大乱斗），8 个进程在一台 Mac 上不到 2 分钟。不写 `--rounds` 默认打 100 轮，要好几个小时。
 
 写一个自己的 `bot.py`（接口见提示词），放进 `bots/`，把名字加进 `arena/tournament.py` 的 `ENTRANTS`，就能和这些 AI 打。沙箱用的是 macOS 的 `sandbox-exec`；在 Linux 上设 `ARENA_NO_SANDBOX=1` 跑（没有沙箱，只跑你信得过的代码）。
 
@@ -99,11 +101,26 @@ python video/build.py video/ep1.json --out video/work/ep1 --render out/ep1.mp4
 
 重新合成的配音每句长短和发布那版会差一点，画面时间轴是跟着配音走的，所以自己出的片子和发布版不会逐帧一样；比赛数据、分镜和画面代码是同一份。
 
-不想等整集渲染，可以去掉 `--render`，到 `video/work/ep1` 里用 `npx --yes hyperframes@0.8.181 preview` 边拖边看，或者用 `snapshot --at 秒数` 截几帧。
+不想等整集渲染，可以去掉 `--render`，到 `video/work/ep1` 里用 `npx --yes hyperframes@0.8.181 preview` 边拖边看，或者截几帧：
+
+```bash
+npx --yes hyperframes@0.8.181 snapshot --at 5,30,600 --describe false
+```
+
+`--describe false` 别省：环境里设了 `GEMINI_API_KEY` 时，snapshot 默认会调 Gemini 给每帧写描述，那是要花钱的。
+
+想拿自己跑的比赛出片，先设 `ARENA_RESULTS=my-results`，再依次跑 `python video/pick_games.py my-games.jsonl.gz` 和 `python video/make_ep1.py`，挑出来的对局和 `picks.json` 写进你的目录，不动仓库里的 `results/`。不过 `make_ep1.py` 是照第 1 集的故事写的，冷开场要的是千问第 100 回合饿死那一局，你的比赛里没有这种局，就得自己改开场，或者照 `video/ep1.json` 的格式自己写分镜。
 
 角色图、头像和封面也都在仓库里。`tools/gen_cast.py` 用 GPT Image 画了两张五人草稿，存在 `cast/drafts/`（重画每次都不一样，所以后面从存下来的草稿开始）；`python tools/make_cast.py` 把草稿切开、压成像素形象，出来的 `cast/` 和仓库里的逐字节一致。`brand/make_baseline.py` 画陪练机器人，`brand/make_avatar.py` 画频道头像。封面上每个角色头顶有所属产品的标志，这些标志商标归各公司所有，不随仓库发布：先跑 `python brand/fetch_logos.py` 下载到 `brand/logos/`，再照 `brand/make_cover.py` 开头那条命令出图；不下载也能出，只是没有标志。
 
-想换个游戏，可以把这个仓库交给 Claude Code 或 Codex，让它照着贪吃蛇的结构换成你想要的游戏：规则引擎、提示词、陪练、回放画法和分镜，再让你挑的几家 AI 来写程序。
+## 换个游戏
+
+想换个游戏，可以把这个仓库交给 Claude Code 或 Codex，让它照着贪吃蛇的结构换成你想要的游戏。我们拿一个干净的 agent 试过，从克隆到新游戏的提示词、裁判、陪练、比赛、排名和几个场景的出片工程，七八分钟就能走通。贪吃蛇写死在下面这几处，让它先看这里：
+
+- **规则引擎**：新游戏照 `arena/snake.py` 里 `Game` 的接口写，`arena/referee.py`、`selfcheck.py`、`tournament.py`、`export.py`、`demos.py` 都是直接 import 贪吃蛇的，把 import 换掉，比赛、自检、评分那套就能原样用。
+- **陪练**：评分拿名叫 `baseline` 的选手当 0 分线，新游戏的陪练也要叫这个名字。大乱斗默认 11 席，选手很少的话，大乱斗那一半权重就没什么意义，调 `arena/tournament.py` 里的赛制。
+- **让 AI 写程序**：`tools/contest.py` 写死了提示词路径 `prompt/PROMPT.md`、贪吃蛇的自检和 8 个 Evolink 上的模型，输出写到 `bots/<模型>.py` 和 `contest/<模型>/`。直接跑会覆盖第 1 集的程序和记录，先复制一份改成新游戏的路径。GPT 和 Claude 那两家第 1 集是在 Codex 和 Claude Code 里手动发题收卷的，没有脚本。
+- **出片**：`video/make_ep1.py` 是第 1 集专用的分镜，没有通用版，分镜格式看 `video/ep1.json` 和 `video/build.py` 就懂。`video/template.html` 底栏写死了「第 1 集 · 贪吃蛇大乱斗」，`video/board.js` 画的是蛇和樱桃，生命值条和死因文字（比如饿死）也是贪吃蛇的，换游戏要一起改。
 
 ## 目录
 

@@ -1,0 +1,80 @@
+{
+ "slug": "kimi",
+ "model": "kimi-k3",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-21 00:17:04 -0700",
+   "credits_delta": 39.7045,
+   "usage": {
+    "prompt_tokens": 1473,
+    "completion_tokens": 40680,
+    "total_tokens": 42153,
+    "completion_tokens_details": {
+     "reasoning_tokens": 33450
+    },
+    "prompt_tokens_details": {
+     "cache_write_tokens": 1280
+    }
+   },
+   "finish": "stop",
+   "seconds": 1217.1,
+   "first_content_s": 1076.3,
+   "reasoning_chars": 141773,
+   "content_chars": 23897,
+   "selfcheck": {
+    "passed": false,
+    "totals": {
+     "errors": 0,
+     "timeouts": 27,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 797.51
+   },
+   "result": "failed"
+  },
+  {
+   "attempt": 1,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-21 00:20:35 -0700",
+   "credits_delta": 9.8497,
+   "usage": {
+    "prompt_tokens": 9025,
+    "completion_tokens": 8590,
+    "total_tokens": 17615,
+    "cached_tokens": 1280,
+    "completion_tokens_details": {
+     "reasoning_tokens": 1401
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 1280,
+     "cache_write_tokens": 7680
+    }
+   },
+   "finish": "stop",
+   "seconds": 166.7,
+   "first_content_s": 47.1,
+   "reasoning_chars": 5781,
+   "content_chars": 23826,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 129.33
+   },
+   "result": "passed"
+  }
+ ],
+ "final": "passed"
+}

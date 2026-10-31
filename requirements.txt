@@ -1,0 +1,6 @@
+# 比赛（裁判、选手程序、自检、正赛、评分）只用 Python 标准库。
+# 下面这些是做视频、封面和角色图用的。
+numpy
+pillow
+fonttools
+brotli

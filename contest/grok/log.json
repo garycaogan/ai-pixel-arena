@@ -1,0 +1,120 @@
+{
+ "slug": "grok",
+ "model": "grok-4.7",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "low"
+   },
+   "started": "2026-10-20 23:56:15 -0700",
+   "credits_delta": 5.8167,
+   "usage": {
+    "prompt_tokens": 2827,
+    "completion_tokens": 3892,
+    "total_tokens": 19993,
+    "prompt_tokens_details": {
+     "text_tokens": 2827,
+     "audio_tokens": 0,
+     "image_tokens": 0,
+     "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 13274,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    },
+    "num_sources_used": 0
+   },
+   "finish": "stop",
+   "seconds": 245.3,
+   "first_content_s": 214.0,
+   "reasoning_chars": 8849,
+   "content_chars": 12436,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 30.85
+   },
+   "result": "passed"
+  }
+ ],
+ "void": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-20 23:36:00 -0700",
+   "credits_delta": 205.4323,
+   "usage": {
+    "prompt_tokens": 2108,
+    "completion_tokens": 89091,
+    "total_tokens": 91199,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    },
+    "completion_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "reasoning_tokens": 0
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "input_tokens_details": null
+   },
+   "finish": null,
+   "seconds": 1898.3,
+   "first_content_s": null,
+   "reasoning_chars": 86235,
+   "content_chars": 0,
+   "result": "void_truncated"
+  },
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "medium"
+   },
+   "started": "2026-10-20 23:52:02 -0700",
+   "credits_delta": 109.9917,
+   "usage": {
+    "prompt_tokens": 2108,
+    "completion_tokens": 51616,
+    "total_tokens": 53724,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cached_creation_tokens": 0,
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    },
+    "completion_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "reasoning_tokens": 0,
+     "image_tokens": 0
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "input_tokens_details": null
+   },
+   "finish": null,
+   "seconds": 953.6,
+   "first_content_s": null,
+   "reasoning_chars": 49361,
+   "content_chars": 0,
+   "result": "void_truncated"
+  }
+ ],
+ "final": "passed"
+}

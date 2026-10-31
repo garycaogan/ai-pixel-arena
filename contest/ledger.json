@@ -1,0 +1,141 @@
+{
+ "cny_per_credit": 0.10016655328532219,
+ "rows": [
+  {
+   "slug": "opus",
+   "model": "claude-opus-5-5",
+   "channel": "本机 Claude Code 子代理（Gary 10/21 要求不走 API）",
+   "requests": null,
+   "counted": 1,
+   "input": 61286,
+   "output": 86287,
+   "credits": null,
+   "cny": null,
+   "note": "本机 Claude Code 子代理，用量取自它的记录；走订阅，不按 API 计费"
+  },
+  {
+   "slug": "astra",
+   "model": "gpt-6-astra",
+   "channel": "Mac Pro 上的 Codex（思考档 max；Gary 10/21 要求不走 API）",
+   "requests": null,
+   "counted": 1,
+   "input": null,
+   "output": null,
+   "credits": null,
+   "cny": null,
+   "note": "Mac Pro 上的 Codex，桥接不返回用量；走订阅，不按 API 计费"
+  },
+  {
+   "slug": "gemini",
+   "model": "gemini-4-argon",
+   "channel": "Evolink API",
+   "requests": 4,
+   "counted": 2,
+   "input": 16840,
+   "output": 90392,
+   "credits": 54.2,
+   "cny": 5.43,
+   "price_in": 115.6,
+   "price_out": 578.0
+  },
+  {
+   "slug": "deepseek",
+   "model": "deepseek-v4.1-flash-1017",
+   "channel": "Evolink API",
+   "requests": 1,
+   "counted": 1,
+   "input": 1484,
+   "output": 35083,
+   "credits": 2.84,
+   "cny": 0.28,
+   "price_in": 20.0,
+   "price_out": 80.0
+  },
+  {
+   "slug": "kimi",
+   "model": "kimi-k3",
+   "channel": "Evolink API",
+   "requests": 3,
+   "counted": 2,
+   "input": 11971,
+   "output": 81270,
+   "credits": 81.08,
+   "cny": 8.12,
+   "price_in": 193.8,
+   "price_out": 969.1
+  },
+  {
+   "slug": "doubao",
+   "model": "doubao-seed-2.0-pro",
+   "channel": "Evolink API",
+   "requests": 1,
+   "counted": 1,
+   "input": 1612,
+   "output": 29334,
+   "credits": 4.75,
+   "cny": 0.48,
+   "price_in": 32.0,
+   "price_out": 160.0
+  },
+  {
+   "slug": "qwen",
+   "model": "qwen3.8-max",
+   "channel": "Evolink API",
+   "requests": 2,
+   "counted": 1,
+   "input": 3675,
+   "output": 66906,
+   "credits": 26.41,
+   "cny": 2.65,
+   "price_in": 129.2,
+   "price_out": 387.7
+  },
+  {
+   "slug": "glm",
+   "model": "glm-5.3",
+   "channel": "Evolink API",
+   "requests": 1,
+   "counted": 1,
+   "input": 1477,
+   "output": 62846,
+   "credits": 15.95,
+   "cny": 1.6,
+   "price_in": 72.0,
+   "price_out": 252.0
+  },
+  {
+   "slug": "minimax",
+   "model": "minimax-m3.1-flash",
+   "channel": "Evolink API",
+   "requests": 1,
+   "counted": 1,
+   "input": 1551,
+   "output": 16611,
+   "credits": 0.68,
+   "cny": 0.07,
+   "price_in": 10.2,
+   "price_out": 40.0
+  },
+  {
+   "slug": "grok",
+   "model": "grok-4.7",
+   "channel": "Evolink API",
+   "requests": 3,
+   "counted": 1,
+   "input": 7043,
+   "output": 157873,
+   "credits": 52.34,
+   "cny": 5.24,
+   "price_in": 26.0,
+   "price_out": 330.4
+  }
+ ],
+ "account_window": {
+  "credits": 473.72,
+  "cny": 47.45,
+  "note": "10/21 04:23–07:21 UTC 账户余额的真实变化，含 8 次 65536 上限试探、所有计入和作废的请求；同一把 key 在这段时间也可能被别的任务用到（每次几百到一两千 token）"
+ },
+ "before_window_credits": 24.5954,
+ "estimated_total_credits": 238.25,
+ "estimated_total_cny": 23.86
+}

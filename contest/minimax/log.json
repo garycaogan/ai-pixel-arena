@@ -1,0 +1,44 @@
+{
+ "slug": "minimax",
+ "model": "minimax-m3.1-flash",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-20 23:04:10 -0700",
+   "credits_delta": 0.6919,
+   "usage": {
+    "total_tokens": 18162,
+    "total_characters": 0,
+    "prompt_tokens": 1551,
+    "completion_tokens": 16611,
+    "completion_tokens_details": {
+     "reasoning_tokens": 15070
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 197
+    }
+   },
+   "finish": "stop",
+   "seconds": 265.2,
+   "first_content_s": 254.3,
+   "reasoning_chars": 68199,
+   "content_chars": 5469,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 2.07
+   },
+   "result": "passed"
+  }
+ ],
+ "final": "passed"
+}

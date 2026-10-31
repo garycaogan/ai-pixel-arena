@@ -1,0 +1,43 @@
+{
+ "slug": "doubao",
+ "model": "doubao-seed-2.0-pro",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-20 21:54:26 -0700",
+   "credits_delta": 4.7451,
+   "usage": {
+    "completion_tokens": 29334,
+    "prompt_tokens": 1612,
+    "total_tokens": 30946,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 26762
+    }
+   },
+   "finish": "stop",
+   "seconds": 467.4,
+   "first_content_s": 430.2,
+   "reasoning_chars": 54905,
+   "content_chars": 7970,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 0.77
+   },
+   "result": "passed"
+  }
+ ],
+ "final": "passed"
+}

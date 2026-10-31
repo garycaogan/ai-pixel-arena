@@ -1,0 +1,45 @@
+{
+ "slug": "deepseek",
+ "model": "deepseek-v4.1-flash-1017",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-20 21:35:33 -0700",
+   "credits_delta": 4.4477,
+   "usage": {
+    "prompt_tokens": 1484,
+    "completion_tokens": 35083,
+    "total_tokens": 36567,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 31533
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1484
+   },
+   "finish": "stop",
+   "seconds": 176.9,
+   "first_content_s": 167.7,
+   "reasoning_chars": 126508,
+   "content_chars": 12315,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 7.54
+   },
+   "result": "passed"
+  }
+ ],
+ "final": "passed"
+}

@@ -1,0 +1,45 @@
+{
+ "slug": "qwen",
+ "model": "qwen3.8-max",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-20 22:26:59 -0700",
+   "credits_delta": 0.1292,
+   "usage": {
+    "prompt_tokens": 1567,
+    "total_tokens": 60048,
+    "completion_tokens": 58481,
+    "prompt_tokens_details": {
+     "cached_tokens": 1024,
+     "text_tokens": 1567
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 55017,
+     "text_tokens": 58481
+    }
+   },
+   "finish": "stop",
+   "seconds": 1518.6,
+   "first_content_s": 1463.1,
+   "reasoning_chars": 215948,
+   "content_chars": 11486,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 1.72
+   },
+   "result": "passed"
+  }
+ ],
+ "final": "passed"
+}

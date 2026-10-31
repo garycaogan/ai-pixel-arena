@@ -1,0 +1,193 @@
+{
+ "what": "作废和试探请求（不算任何选手的成绩，花费照样记进总账）",
+ "items": [
+  {
+   "slug": "gemini",
+   "what": "第一次开跑，输出上限 32000，全用在思考上没出代码，作废",
+   "usage": {
+    "prompt_tokens": 1551,
+    "completion_tokens": 32000,
+    "reasoning_tokens": 31997
+   },
+   "credits_delta": 24.5954,
+   "seconds": 384.1
+  },
+  {
+   "slug": "gemini",
+   "what": "脚本被停时第二次请求可能已经发出，扣费未知（在下一笔余额差里）",
+   "credits_delta": null
+  },
+  {
+   "slug": "gemini",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "prompt_tokens": 38,
+    "completion_tokens": 85,
+    "total_tokens": 123,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "text_tokens": 38,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    },
+    "completion_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "reasoning_tokens": 80
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "input_tokens_details": null
+   },
+   "credits_delta": 0.0536,
+   "seconds": 4.0
+  },
+  {
+   "slug": "deepseek",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "prompt_tokens": 37,
+    "completion_tokens": 12,
+    "total_tokens": 49,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 10
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 37
+   },
+   "credits_delta": 0.01,
+   "seconds": 1.1
+  },
+  {
+   "slug": "kimi",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "cached_tokens": 0,
+    "completion_thinking_tokens": 18,
+    "completion_tokens": 34,
+    "completion_tokens_details": {
+     "accepted_prediction_tokens": 0,
+     "audio_tokens": 0,
+     "cached_tokens": 0,
+     "reasoning_tokens": 18,
+     "rejected_prediction_tokens": 0
+    },
+    "credit": 0.13,
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 93,
+    "prompt_cache_write_tokens": 0,
+    "prompt_tokens": 93,
+    "prompt_tokens_details": {
+     "accepted_prediction_tokens": 0,
+     "audio_tokens": 0,
+     "cached_tokens": 0,
+     "reasoning_tokens": 0,
+     "rejected_prediction_tokens": 0
+    },
+    "total_tokens": 127
+   },
+   "credits_delta": 10.6468,
+   "seconds": 3.6
+  },
+  {
+   "slug": "doubao",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 53,
+    "total_tokens": 77,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 23
+    }
+   },
+   "credits_delta": 0.01,
+   "seconds": 3.0
+  },
+  {
+   "slug": "qwen",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "prompt_tokens": 68,
+    "total_tokens": 99,
+    "completion_tokens": 31,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "text_tokens": 68
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 28,
+     "text_tokens": 31
+    }
+   },
+   "credits_delta": 0.0209,
+   "seconds": 4.1
+  },
+  {
+   "slug": "glm",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "prompt_tokens": 19,
+    "completion_tokens": 14,
+    "total_tokens": 33,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 12
+    }
+   },
+   "credits_delta": 0.2898,
+   "seconds": 2.4
+  },
+  {
+   "slug": "minimax",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "total_tokens": 219,
+    "total_characters": 0,
+    "prompt_tokens": 209,
+    "completion_tokens": 10,
+    "completion_tokens_details": {
+     "reasoning_tokens": 6
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    }
+   },
+   "credits_delta": 0.01,
+   "seconds": 1.3
+  },
+  {
+   "slug": "grok",
+   "what": "试探 65536 输出上限是否可用（只回一个 ok）",
+   "usage": {
+    "prompt_tokens": 1249,
+    "completion_tokens": 1,
+    "total_tokens": 1317,
+    "prompt_tokens_details": {
+     "text_tokens": 1249,
+     "audio_tokens": 0,
+     "image_tokens": 0,
+     "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 67,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    },
+    "num_sources_used": 0
+   },
+   "credits_delta": 0.0642,
+   "seconds": 1.6
+  }
+ ]
+}

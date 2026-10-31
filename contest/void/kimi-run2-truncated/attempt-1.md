@@ -1,0 +1,1 @@
+HTTP 400: {"error":{"message":"Invalid request: the message at position 1 with role 'assistant' must not be empty (request id: 20261021124614560984008kDzHhBSG)","type":"invalid_request_error","param":"","code":null}}

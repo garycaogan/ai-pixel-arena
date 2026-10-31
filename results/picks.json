@@ -1,0 +1,86 @@
+{
+ "duel_top": {
+  "round": 17,
+  "seed": 100017,
+  "seats": [
+   "astra",
+   "opus"
+  ],
+  "turns": 392,
+  "place": [
+   2,
+   1
+  ],
+  "file": "results/games/duel_top.json",
+  "why": "总榜第 1、2 名的 140 局单挑里，回合数最接近中位数（392）的一局",
+  "record": {
+   "games": 140,
+   "top1_wins": 46,
+   "draws": 0
+  }
+ },
+ "duel_34": {
+  "round": 27,
+  "seed": 100027,
+  "seats": [
+   "gemini",
+   "kimi"
+  ],
+  "turns": 191,
+  "place": [
+   2,
+   1
+  ],
+  "file": "results/games/duel_34.json",
+  "why": "总榜第 3、4 名的 140 局单挑里，回合数最接近中位数（191）的一局",
+  "record": {
+   "games": 140,
+   "top3_wins": 48,
+   "draws": 0
+  }
+ },
+ "melee_typical": {
+  "round": 24,
+  "seed": 502403,
+  "seats": [
+   "glm",
+   "opus",
+   "doubao",
+   "qwen",
+   "gemini",
+   "astra",
+   "deepseek",
+   "grok",
+   "baseline",
+   "minimax",
+   "kimi"
+  ],
+  "turns": 800,
+  "place": [
+   7,
+   2,
+   10,
+   11,
+   3,
+   1,
+   4,
+   6,
+   9,
+   8,
+   5
+  ],
+  "spearman": 0.991,
+  "file": "results/games/melee_typical.json",
+  "why": "770 局大乱斗里，名次和总榜最一致的一局（Spearman 0.991）"
+ },
+ "cold": {
+  "round": 66,
+  "seed": 506605,
+  "who": "qwen",
+  "color_word": "粉色",
+  "file": "results/games/cold.json",
+  "why": "千问在第 100 回合饿死、一口没吃、总榜第一赢下的 90 局大乱斗里，名次和总榜最一致的一局（Spearman 0.955）",
+  "qwen_starve_at_100": 168,
+  "melees": 770
+ }
+}

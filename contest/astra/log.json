@@ -1,0 +1,32 @@
+{
+ "slug": "astra",
+ "model": "gpt-6-astra",
+ "channel": "Mac Pro 上的 Codex（思考档 max；Gary 10/21 要求不走 API）",
+ "chat": "（会话编号略）",
+ "attempts": [
+  {
+   "attempt": 0,
+   "started": "2026-10-21T04:11:15Z",
+   "finished": "2026-10-21T05:03:20Z",
+   "seconds": null,
+   "seconds_note": "从发题到交卷 52 分钟，其中有一次约 2 分钟的维护中断、两次长回复在传输中断开（见 CONDITIONS.md），纯思考和写代码的时长拿不到。",
+   "usage": null,
+   "usage_note": "Codex 桥接不返回 token 用量，记为不适用",
+   "cost": "不适用（走 Gary 的 Codex 订阅，不按 API 计费）",
+   "delivery": "写入 Mac Pro 文件 <本机路径> sha256 一致：db2dcb896f6f18332628c0078284f18f033f8f9aca63de4bdf8f68cc62dca2a4，916 行",
+   "thinking_headings": 150,
+   "result": "passed",
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 39.08
+   }
+  }
+ ],
+ "final": "passed"
+}

@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+.DS_Store
+scratch/
+out/
+*.raw.mp4
+*.mp4
+# 出片的工作目录和配音缓存
+video/work/
+video/cache/
+# 自己跑的比赛记录和成绩（README 里的示例命令）
+my-games.jsonl.gz
+my-results/
+results/STOP
+# 不随仓库发布的第三方文件：正文字体（OFL，17 MB，README 有下载方法）、产品标志（商标归各公司）
+fonts/NotoSansSC-VF.ttf
+brand/logos/
+# 生成封面
+brand/cover*.jpg
+# tools/sprite.py 顺手写的坐标格预览
+cast/*/n_grid.png

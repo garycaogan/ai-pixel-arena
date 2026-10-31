@@ -1,0 +1,34 @@
+{
+ "slug": "opus",
+ "model": "claude-opus-5-5",
+ "channel": "本机 Claude Code 子代理（Gary 10/21 要求不走 API）",
+ "attempts": [
+  {
+   "attempt": 0,
+   "started": "2026-10-21T04:10:49Z",
+   "finished": "2026-10-21T04:24:39Z",
+   "seconds": 829.6,
+   "tool_uses": 0,
+   "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 61284,
+    "output_tokens": 86287,
+    "thinking_tokens": 79282
+   },
+   "usage_note": "取自子代理记录里最后一次请求的 usage；输入里大部分是 Claude Code 子代理自带的系统提示，不是比赛提示词。subagent_tokens 汇总为 147573。",
+   "cost": "不适用（走本机 Claude Code 订阅，不按 API 计费）",
+   "result": "passed",
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 250.04
+   }
+  }
+ ],
+ "final": "passed"
+}

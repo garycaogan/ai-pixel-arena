@@ -1,0 +1,459 @@
+{
+ "opus": {
+  "model": "claude-opus-5-5",
+  "channel": "本机 Claude Code 子代理（Gary 10/21 要求不走 API）",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   829.6
+  ],
+  "first_content_s": [
+   null
+  ],
+  "usage": [
+   {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 61284,
+    "output_tokens": 86287,
+    "thinking_tokens": 79282
+   }
+  ],
+  "credits": [
+   null
+  ],
+  "selfcheck_max_cpu_ms": [
+   250.04
+  ],
+  "code_lines": 588,
+  "code_bytes": 15259,
+  "summary_first": "策略说明：\n\n**安全底线**：每回合先算出哪些方向会撞墙或撞身体。算的时候考虑了尾巴会缩回，刚吃过东西的蛇尾巴不动，所以能贴着别人的尾巴走。如果只剩一个能走的方向，就直接走它。\n\n**单挑**（大乱斗打到只剩两条蛇时也用这一套）：双方同时出招，按对手总能选出对我最不利的那一步来搜，配合 α-β 剪枝逐层加深，CPU 时间约 30 毫秒就停。搜到最深处时这样打分：\n\n- 看双方谁先到哪些格子来划分地盘。会算上身体什么时候让出格子，也算上绕圈等尾巴的空间。\n- 再看长度优势、离自己能先抢到的食物有多远、血量够不够撑到吃饭，以及会不会被困死。\n- 同样长度对头相撞是双亡，按劣势处理。\n\n**大乱斗**：每个候选方向分别打分。\n\n- 先估算撞头的概率：对方和我一样长或比我长就重罚，比我短就给一点奖励。\n- 再单独做一次空间填充，判断这一步会不会把自己困死。\n- 然后多蛇同时扩散，估算地盘大小和哪颗食物归我。\n- 进食欲望看血量，也看自己比最长的对手短多少。\n\n万一出错，就退回到\"只求安全、选空间最大的方向\"的简单策略。",
+  "summary_final": "策略说明：\n\n**安全底线**：每回合先算出哪些方向会撞墙或撞身体。算的时候考虑了尾巴会缩回，刚吃过东西的蛇尾巴不动，所以能贴着别人的尾巴走。如果只剩一个能走的方向，就直接走它。\n\n**单挑**（大乱斗打到只剩两条蛇时也用这一套）：双方同时出招，按对手总能选出对我最不利的那一步来搜，配合 α-β 剪枝逐层加深，CPU 时间约 30 毫秒就停。搜到最深处时这样打分：\n\n- 看双方谁先到哪些格子来划分地盘。会算上身体什么时候让出格子，也算上绕圈等尾巴的空间。\n- 再看长度优势、离自己能先抢到的食物有多远、血量够不够撑到吃饭，以及会不会被困死。\n- 同样长度对头相撞是双亡，按劣势处理。\n\n**大乱斗**：每个候选方向分别打分。\n\n- 先估算撞头的概率：对方和我一样长或比我长就重罚，比我短就给一点奖励。\n- 再单独做一次空间填充，判断这一步会不会把自己困死。\n- 然后多蛇同时扩散，估算地盘大小和哪颗食物归我。\n- 进食欲望看血量，也看自己比最长的对手短多少。\n\n万一出错，就退回到\"只求安全、选空间最大的方向\"的简单策略。",
+  "usage_note": "取自子代理记录里最后一次请求的 usage；输入里大部分是 Claude Code 子代理自带的系统提示，不是比赛提示词。subagent_tokens 汇总为 147573。",
+  "cost": "不适用（走本机 Claude Code 订阅，不按 API 计费）",
+  "reports": []
+ },
+ "astra": {
+  "model": "gpt-6-astra",
+  "channel": "Mac Pro 上的 Codex（思考档 max；Gary 10/21 要求不走 API）",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   null
+  ],
+  "first_content_s": [
+   null
+  ],
+  "usage": [
+   null
+  ],
+  "credits": [
+   null
+  ],
+  "selfcheck_max_cpu_ms": [
+   39.08
+  ],
+  "code_lines": 916,
+  "code_bytes": 33192,
+  "summary_first": "",
+  "summary_final": "",
+  "seconds_note": "从发题到交卷 52 分钟，其中有一次约 2 分钟的维护中断、两次长回复在传输中断开（见 CONDITIONS.md），纯思考和写代码的时长拿不到。",
+  "usage_note": "Codex 桥接不返回 token 用量，记为不适用",
+  "cost": "不适用（走 Gary 的 Codex 订阅，不按 API 计费）",
+  "delivery": "写入 Mac Pro 文件 <本机路径> sha256 一致：db2dcb896f6f18332628c0078284f18f033f8f9aca63de4bdf8f68cc62dca2a4，916 行",
+  "reports": []
+ },
+ "gemini": {
+  "model": "gemini-4-argon",
+  "channel": "Evolink API",
+  "attempts": 2,
+  "fixes_used": 1,
+  "void": 0,
+  "results": [
+   "failed",
+   "passed"
+  ],
+  "seconds": [
+   530.5,
+   161.5
+  ],
+  "first_content_s": [
+   463.4,
+   23.4
+  ],
+  "usage": [
+   {
+    "prompt_tokens": 1551,
+    "completion_tokens": 44945,
+    "total_tokens": 46496,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "text_tokens": 1551,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    },
+    "completion_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "reasoning_tokens": 33039
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "input_tokens_details": null
+   },
+   {
+    "prompt_tokens": 13700,
+    "completion_tokens": 13362,
+    "total_tokens": 27062,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "text_tokens": 13700,
+     "audio_tokens": 0,
+     "image_tokens": 0
+    },
+    "completion_tokens_details": {
+     "text_tokens": 0,
+     "audio_tokens": 0,
+     "reasoning_tokens": 1618
+    },
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "input_tokens_details": null
+   }
+  ],
+  "credits": [
+   47.8883,
+   9.3071
+  ],
+  "selfcheck_max_cpu_ms": [
+   0.0,
+   296.61
+  ],
+  "code_lines": 1132,
+  "code_bytes": 38052,
+  "summary_first": "### 策略简述\n\n本程序采用**精确时序空间分析 + 同步博弈 Alpha-Beta 迭代加深搜索**的双模式自适应架构：\n\n1. **一维预计算与精确尾部释放模型**：预计算棋盘邻接表、奇偶性与曼哈顿距离矩阵；用线性公式精确计算每节蛇身的释放回合 `release_time`（完整涵盖开局叠身与进食后尾部停滞机制）。\n2. **Voronoi 阴影洪水填充与奇偶死胡同检测**：在多源 BFS 中按敌蛇长度降序扩展，排除敌方先到（或同回合到达且不短于己方）的瓶颈格，结合黑白格奇偶容量与边界尾部开启检测，精准识别假性大空间与延迟死路。\n3. **分赛制博弈引擎**：单挑与残局通过 8 层同步 Alpha-Beta 搜索实施抢食压制、贴墙封锁与死路围杀；大乱斗优先确保安全生存与局部长度优势，规避高危对撞。",
+  "summary_final": "### 修复说明\n\n1. 修复了第 7 行 `WIN_SCORE = 100000.0` 前多余空格导致的 `IndentationError`。\n2. 修复了第 51 行 `row_dirs` 变量名中误入空格导致的语法错误，并全面复查了全文件的缩进与语法规范。",
+  "reports": [
+   "自检结果：未通过。\n自检一共 12 局（6 局单挑、6 局大乱斗，对手都是陪练基准）。你的程序在这 12 局里：代码报错 12 次，超时 0 次，返回值不对 0 次，进程卡死或退出 0 次。\n单回合最多用了 0.0 毫秒 CPU（上限 50 毫秒，第 1 回合 1000 毫秒）。\n\n问题 1：第 1 局（单挑，你是 0 号），第 1 回合，代码报错。\nTraceback (most recent call last):\n         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"bot.py\", line 7\n    WIN_SCORE = 100000.0\nIndentationError: unexpected indent\n\n这是你的第 1 次修复机会（一共 2 次）。请修好以后按原来的格式重新交一次：回复里只放一个 ```python 代码块，里面是完整的 bot.py，后面可以用不超过 300 字说明改了什么。"
+  ]
+ },
+ "deepseek": {
+  "model": "deepseek-v4.1-flash-1017",
+  "channel": "Evolink API",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   176.9
+  ],
+  "first_content_s": [
+   167.7
+  ],
+  "usage": [
+   {
+    "prompt_tokens": 1484,
+    "completion_tokens": 35083,
+    "total_tokens": 36567,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 31533
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 1484
+   }
+  ],
+  "credits": [
+   4.4477
+  ],
+  "selfcheck_max_cpu_ms": [
+   7.54
+  ],
+  "code_lines": 427,
+  "code_bytes": 12159,
+  "summary_first": "策略简述：每回合先剔除撞墙、撞身体和必饿死的方向；对每个可行方向评估空间连通度、机动性、食物距离、长度与血量。会预测其他蛇下一回合的安全头位，遇到等长或更长的潜在撞头会强烈回避，遇到更短的则适度抢位。再用带静态障碍模型的束搜索向前模拟若干步，优先选择能保命、能扩展、能吃食物的路线。",
+  "summary_final": "策略简述：每回合先剔除撞墙、撞身体和必饿死的方向；对每个可行方向评估空间连通度、机动性、食物距离、长度与血量。会预测其他蛇下一回合的安全头位，遇到等长或更长的潜在撞头会强烈回避，遇到更短的则适度抢位。再用带静态障碍模型的束搜索向前模拟若干步，优先选择能保命、能扩展、能吃食物的路线。",
+  "reports": []
+ },
+ "kimi": {
+  "model": "kimi-k3",
+  "channel": "Evolink API",
+  "attempts": 2,
+  "fixes_used": 1,
+  "void": 0,
+  "results": [
+   "failed",
+   "passed"
+  ],
+  "seconds": [
+   1217.1,
+   166.7
+  ],
+  "first_content_s": [
+   1076.3,
+   47.1
+  ],
+  "usage": [
+   {
+    "prompt_tokens": 1473,
+    "completion_tokens": 40680,
+    "total_tokens": 42153,
+    "completion_tokens_details": {
+     "reasoning_tokens": 33450
+    },
+    "prompt_tokens_details": {
+     "cache_write_tokens": 1280
+    }
+   },
+   {
+    "prompt_tokens": 9025,
+    "completion_tokens": 8590,
+    "total_tokens": 17615,
+    "cached_tokens": 1280,
+    "completion_tokens_details": {
+     "reasoning_tokens": 1401
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 1280,
+     "cache_write_tokens": 7680
+    }
+   }
+  ],
+  "credits": [
+   39.7045,
+   9.8497
+  ],
+  "selfcheck_max_cpu_ms": [
+   797.51,
+   129.33
+  ],
+  "code_lines": 880,
+  "code_bytes": 23726,
+  "summary_first": "策略：精确模拟进食停尾、饥饿、多头同格等结算；先筛查所有对手可行动作的即时致死风险。单挑做同时行动极小极大迭代加深，大乱斗预测对手策略并加入近敌变体场景。评估综合洪泛空间、限时食物路径、机动性、长度、敌我区域和头对头优势，超时保留已完成的最优着法。",
+  "summary_final": "改动：收紧每回合 CPU 预算，把全局耗时检查加密到搜索与洪泛扩展中；降低大乱斗/单挑搜索深度，减少敌方策略的洪泛评估和近敌变体数量，确保超时前总能保留已完成的可行着法。",
+  "reports": [
+   "自检结果：未通过。\n自检一共 12 局（6 局单挑、6 局大乱斗，对手都是陪练基准）。你的程序在这 12 局里：代码报错 0 次，超时 27 次，返回值不对 0 次，进程卡死或退出 0 次。\n单回合最多用了 797.51 毫秒 CPU（上限 50 毫秒，第 1 回合 1000 毫秒）。\n\n问题 1：第 1 局（单挑，你是 0 号），第 4 回合，超时。\n这一回合用了 51.4 毫秒 CPU，上限 50\n当时的 state：{\"turn\":4,\"max_turns\":500,\"width\":15,\"height\":15,\"num_snakes\":2,\"you\":0,\"snakes\":[{\"id\":0,\"body\":[[6,3],[5,3],[4,3]],\"health\":97,\"length\":3},{\"id\":1,\"body\":[[10,9],[10,10],[10,11],[10,11]],\"health\":100,\"length\":4}],\"food\":[[14,6],[6,8],[5,11]]}\n\n这是你的第 1 次修复机会（一共 2 次）。请修好以后按原来的格式重新交一次：回复里只放一个 ```python 代码块，里面是完整的 bot.py，后面可以用不超过 300 字说明改了什么。"
+  ]
+ },
+ "doubao": {
+  "model": "doubao-seed-2.0-pro",
+  "channel": "Evolink API",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   467.4
+  ],
+  "first_content_s": [
+   430.2
+  ],
+  "usage": [
+   {
+    "completion_tokens": 29334,
+    "prompt_tokens": 1612,
+    "total_tokens": 30946,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 26762
+    }
+   }
+  ],
+  "credits": [
+   4.7451
+  ],
+  "selfcheck_max_cpu_ms": [
+   0.77
+  ],
+  "code_lines": 219,
+  "code_bytes": 7713,
+  "summary_first": "### 策略简述\n1. **生存优先**：先过滤掉头、出界、撞固定障碍物的死路，规避与更长/等长蛇头碰头的高风险方向，通过连通分量计算选择空间充足的路径避免困死。\n2. **高效觅食**：饥饿时优先前往可抢先到达的食物，用BFS计算最短路径，避免抢食失败饿死。\n3. **主动进攻**：长度占优时主动撞击短蛇的可能前进位置，消灭对手减少竞争。\n4. **残局稳健**：回合接近上限时优先保证生存，避免不必要的冒险。\n5. **随机扰动**：得分相同时随机选择方向，避免被对手预判路径。",
+  "summary_final": "### 策略简述\n1. **生存优先**：先过滤掉头、出界、撞固定障碍物的死路，规避与更长/等长蛇头碰头的高风险方向，通过连通分量计算选择空间充足的路径避免困死。\n2. **高效觅食**：饥饿时优先前往可抢先到达的食物，用BFS计算最短路径，避免抢食失败饿死。\n3. **主动进攻**：长度占优时主动撞击短蛇的可能前进位置，消灭对手减少竞争。\n4. **残局稳健**：回合接近上限时优先保证生存，避免不必要的冒险。\n5. **随机扰动**：得分相同时随机选择方向，避免被对手预判路径。",
+  "reports": []
+ },
+ "qwen": {
+  "model": "qwen3.8-max",
+  "channel": "Evolink API",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   1518.6
+  ],
+  "first_content_s": [
+   1463.1
+  ],
+  "usage": [
+   {
+    "prompt_tokens": 1567,
+    "total_tokens": 60048,
+    "completion_tokens": 58481,
+    "prompt_tokens_details": {
+     "cached_tokens": 1024,
+     "text_tokens": 1567
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 55017,
+     "text_tokens": 58481
+    }
+   }
+  ],
+  "credits": [
+   0.1292
+  ],
+  "selfcheck_max_cpu_ms": [
+   1.72
+  ],
+  "code_lines": 441,
+  "code_bytes": 11312,
+  "summary_first": "策略：单步安全 + 洪泛评估。先按“对手下一回合仍占用的身体”排除必死格，会动的尾巴视为可通过；把长度不短于我的敌头下一步可撞的格子标为致命风险。对每个候选方向做 BFS：统计可活动空间、是否能绕回自己的尾巴、到最近食物距离。正常时优先无致命碰撞、保持尾部可达与大空间；饥饿或残局时提高抢食物权重，必要时降低风险厌恶。",
+  "summary_final": "策略：单步安全 + 洪泛评估。先按“对手下一回合仍占用的身体”排除必死格，会动的尾巴视为可通过；把长度不短于我的敌头下一步可撞的格子标为致命风险。对每个候选方向做 BFS：统计可活动空间、是否能绕回自己的尾巴、到最近食物距离。正常时优先无致命碰撞、保持尾部可达与大空间；饥饿或残局时提高抢食物权重，必要时降低风险厌恶。",
+  "reports": []
+ },
+ "glm": {
+  "model": "glm-5.3",
+  "channel": "Evolink API",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   1943.0
+  ],
+  "first_content_s": [
+   1877.7
+  ],
+  "usage": [
+   {
+    "prompt_tokens": 1477,
+    "completion_tokens": 62846,
+    "total_tokens": 64323,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 59674
+    }
+   }
+  ],
+  "credits": [
+   0.0
+  ],
+  "selfcheck_max_cpu_ms": [
+   2.99
+  ],
+  "code_lines": 337,
+  "code_bytes": 10231,
+  "summary_first": "策略：生存优先的单步打分。每回合先精确算出本回合致命格（含尾巴缩回、刚进食尾巴不动、掉头禁用），对可能被等长/更长蛇头同格抢占的格子重罚；用时间感知洪泛（蛇身随回合逐步释放）评估活动空间，防死胡同；BFS 选食物目标并考虑争抢度，按血量动态调整觅食权重，濒死饿死时允许冒险；只剩一条对手且我更长时压缩其空间；血量足以撑到回合上限时切换为纯保命。全程有异常兜底，保证永不超时不崩溃。",
+  "summary_final": "策略：生存优先的单步打分。每回合先精确算出本回合致命格（含尾巴缩回、刚进食尾巴不动、掉头禁用），对可能被等长/更长蛇头同格抢占的格子重罚；用时间感知洪泛（蛇身随回合逐步释放）评估活动空间，防死胡同；BFS 选食物目标并考虑争抢度，按血量动态调整觅食权重，濒死饿死时允许冒险；只剩一条对手且我更长时压缩其空间；血量足以撑到回合上限时切换为纯保命。全程有异常兜底，保证永不超时不崩溃。",
+  "reports": []
+ },
+ "minimax": {
+  "model": "minimax-m3.1-flash",
+  "channel": "Evolink API",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 0,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   265.2
+  ],
+  "first_content_s": [
+   254.3
+  ],
+  "usage": [
+   {
+    "total_tokens": 18162,
+    "total_characters": 0,
+    "prompt_tokens": 1551,
+    "completion_tokens": 16611,
+    "completion_tokens_details": {
+     "reasoning_tokens": 15070
+    },
+    "prompt_tokens_details": {
+     "cached_tokens": 197
+    }
+   }
+  ],
+  "credits": [
+   0.6919
+  ],
+  "selfcheck_max_cpu_ms": [
+   2.07
+  ],
+  "code_lines": 194,
+  "code_bytes": 5876,
+  "summary_first": "",
+  "summary_final": "",
+  "reports": []
+ },
+ "grok": {
+  "model": "grok-4.7",
+  "channel": "Evolink API",
+  "attempts": 1,
+  "fixes_used": 0,
+  "void": 2,
+  "results": [
+   "passed"
+  ],
+  "seconds": [
+   245.3
+  ],
+  "first_content_s": [
+   214.0
+  ],
+  "usage": [
+   {
+    "prompt_tokens": 2827,
+    "completion_tokens": 3892,
+    "total_tokens": 19993,
+    "prompt_tokens_details": {
+     "text_tokens": 2827,
+     "audio_tokens": 0,
+     "image_tokens": 0,
+     "cached_tokens": 1152
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 13274,
+     "audio_tokens": 0,
+     "accepted_prediction_tokens": 0,
+     "rejected_prediction_tokens": 0
+    },
+    "num_sources_used": 0
+   }
+  ],
+  "credits": [
+   5.8167
+  ],
+  "selfcheck_max_cpu_ms": [
+   30.85
+  ],
+  "code_lines": 359,
+  "code_bytes": 12300,
+  "summary_first": "先保证不死：避开墙、身体和同等或更长的蛇头对撞，尾巴格在缩回后才跟。用洪水填充选空间更大、下一步还走得开的方向；血量紧或食物就在自己可达范围内时再去吃，优先没人更近的食物。单挑用对抗搜索比空间和长度，大乱斗则远离更长的头、把活到最后放在变长前面。",
+  "summary_final": "先保证不死：避开墙、身体和同等或更长的蛇头对撞，尾巴格在缩回后才跟。用洪水填充选空间更大、下一步还走得开的方向；血量紧或食物就在自己可达范围内时再去吃，优先没人更近的食物。单挑用对抗搜索比空间和长度，大乱斗则远离更长的头、把活到最后放在变长前面。",
+  "reports": []
+ }
+}

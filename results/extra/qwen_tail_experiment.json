@@ -1,0 +1,16 @@
+{
+ "what": "赛后小实验，不计成绩：千问的程序原版，和只把 tail_bonus（能绕回自己尾巴的奖励）改成 0 的版本，各和 10 个陪练基准打 20 局大乱斗（种子 7000–7019，千问坐 0 号位）。",
+ "original": {
+  "ate_avg": 1.85,
+  "starved": 12,
+  "games": 20,
+  "survive_turn_avg": 139.45
+ },
+ "no_tail_bonus": {
+  "ate_avg": 42.5,
+  "starved": 1,
+  "games": 20,
+  "survive_turn_avg": 391.4
+ },
+ "diff": "bots/qwen.py 第 291、293 行：tail_bonus = 60_000 if desperate else 180_000 / tail_bonus = 100_000 → 0"
+}

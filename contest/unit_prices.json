@@ -1,0 +1,222 @@
+{
+ "gemini": {
+  "model": "gemini-4-argon",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 9168,
+    "completion": 5,
+    "credits": 1.0628,
+    "seconds": 3.5,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 57,
+    "completion": 3331,
+    "credits": 1.932,
+    "seconds": 70.6,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 115.60971439066907,
+  "credits_per_M_out": 578.027693269208
+ },
+ "deepseek": {
+  "model": "deepseek-v4.1-flash-1017",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 8768,
+    "completion": 50,
+    "credits": 0.1794,
+    "seconds": 1.9,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 53,
+    "completion": 3491,
+    "credits": 0.2804,
+    "seconds": 27.2,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 20.00446442019813,
+  "credits_per_M_out": 80.017119274056
+ },
+ "kimi": {
+  "model": "kimi-k3",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 8422,
+    "completion": 46,
+    "credits": 1.6768,
+    "seconds": 4.5,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 106,
+    "completion": 1503,
+    "credits": 1.4771,
+    "seconds": 49.3,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 193.80449033816234,
+  "credits_per_M_out": 969.0996167825382
+ },
+ "doubao": {
+  "model": "doubao-seed-2.0-pro",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 9459,
+    "completion": 552,
+    "credits": 0.3911,
+    "seconds": 17.4,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 73,
+    "completion": 4616,
+    "credits": 0.741,
+    "seconds": 102.1,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 32.00841915153409,
+  "credits_per_M_out": 160.0223971841287
+ },
+ "qwen": {
+  "model": "qwen3.8-max",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 9105,
+    "completion": 30,
+    "credits": 1.1881,
+    "seconds": 6.5,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 72,
+    "completion": 1867,
+    "credits": 0.7331,
+    "seconds": 52.2,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 129.2113815039529,
+  "credits_per_M_out": 387.67904688361835
+ },
+ "glm": {
+  "model": "glm-5.3",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 8817,
+    "completion": 26,
+    "credits": 0.6415,
+    "seconds": 3.8,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 36,
+    "completion": 2243,
+    "credits": 0.5679,
+    "seconds": 94.5,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 72.01396974402034,
+  "credits_per_M_out": 252.03187565279322
+ },
+ "minimax": {
+  "model": "minimax-m3.1-flash",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 8310,
+    "completion": 36,
+    "credits": 0.0863,
+    "seconds": 2.7,
+    "error": null
+   },
+   {
+    "kind": "out",
+    "prompt": 224,
+    "completion": 2055,
+    "credits": 0.0844,
+    "seconds": 50.3,
+    "error": null
+   }
+  ],
+  "credits_per_M_in": 10.211977442596766,
+  "credits_per_M_out": 39.957429222802105
+ },
+ "grok": {
+  "model": "grok-4.7",
+  "requests": [
+   {
+    "kind": "in",
+    "prompt": 10769,
+    "completion": 3652,
+    "credits": 1.4865,
+    "seconds": 68.2,
+    "error": null,
+    "usage": {
+     "prompt_tokens": 10769,
+     "completion_tokens": 50,
+     "total_tokens": 14421,
+     "prompt_tokens_details": {
+      "text_tokens": 10769,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "cached_tokens": 10752
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 3602,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+     },
+     "num_sources_used": 0
+    }
+   },
+   {
+    "kind": "out",
+    "prompt": 1266,
+    "completion": 2772,
+    "credits": 0.9487,
+    "seconds": 73.9,
+    "error": null,
+    "usage": {
+     "prompt_tokens": 1266,
+     "completion_tokens": 2630,
+     "total_tokens": 4038,
+     "prompt_tokens_details": {
+      "text_tokens": 1266,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "cached_tokens": 1152
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 142,
+      "audio_tokens": 0,
+      "accepted_prediction_tokens": 0,
+      "rejected_prediction_tokens": 0
+     },
+     "num_sources_used": 0
+    }
+   }
+  ],
+  "credits_per_M_in": 25.999661648955545,
+  "credits_per_M_out": 330.3695628976992
+ }
+}

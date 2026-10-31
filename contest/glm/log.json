@@ -1,0 +1,43 @@
+{
+ "slug": "glm",
+ "model": "glm-5.3",
+ "channel": "Evolink API",
+ "attempts": [
+  {
+   "attempt": 0,
+   "params": {
+    "reasoning_effort": "high"
+   },
+   "started": "2026-10-20 22:59:33 -0700",
+   "credits_delta": 0.0,
+   "usage": {
+    "prompt_tokens": 1477,
+    "completion_tokens": 62846,
+    "total_tokens": 64323,
+    "prompt_tokens_details": {
+     "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 59674
+    }
+   },
+   "finish": "stop",
+   "seconds": 1943.0,
+   "first_content_s": 1877.7,
+   "reasoning_chars": 216165,
+   "content_chars": 10436,
+   "selfcheck": {
+    "passed": true,
+    "totals": {
+     "errors": 0,
+     "timeouts": 0,
+     "invalid": 0,
+     "killed": 0
+    },
+    "max_cpu_ms": 2.99
+   },
+   "result": "passed"
+  }
+ ],
+ "final": "passed"
+}

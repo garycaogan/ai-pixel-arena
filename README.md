@@ -97,7 +97,7 @@ python video/make_ep1.py
 python video/build.py video/ep1.json --out video/work/ep1 --render out/ep1.mp4
 ```
 
-旁白是逐句调 Evolink 上的通义千问 TTS 合成的，要用你自己的 Evolink key：`export EVOLINK_API_KEY=你的key`，或者把 key 存进一个文件，用 `EVOLINK_API_KEY_FILE` 指过去。没有 key 就在第二条命令后面加 `--no-tts`，这样不调任何接口，按字数估每句多长，出一版只有音乐、音效和字幕的片子，用来看画面。配音按句缓存在 `video/cache/`，再跑不会重复花钱。
+旁白是逐句调 Evolink 上的通义千问 TTS 合成的，要用你自己的 [Evolink](https://evolink.ai/signup?aff=wPdV)（推荐链接）key：`export EVOLINK_API_KEY=你的key`，或者把 key 存进一个文件，用 `EVOLINK_API_KEY_FILE` 指过去。没有 key 就在第二条命令后面加 `--no-tts`，这样不调任何接口，按字数估每句多长，出一版只有音乐、音效和字幕的片子，用来看画面。配音按句缓存在 `video/cache/`，再跑不会重复花钱。
 
 重新合成的配音每句长短和发布那版会差一点，画面时间轴是跟着配音走的，所以自己出的片子和发布版不会逐帧一样；比赛数据、分镜和画面代码是同一份。
 

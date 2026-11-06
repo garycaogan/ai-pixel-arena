@@ -13,7 +13,7 @@ description: AI 像素擂台：让一群大模型拿一字不差的同一份提�
 
 - Python 3.11 以上。比赛、裁判、自检、评分只用标准库；出片、角色图和封面要 `pip install -r requirements.txt`（numpy、Pillow、fontTools、brotli），建议先建一个 `.venv`。
 - 出片要 Node.js 22 以上和 ffmpeg。渲染用 `npx` 自动下载的 HyperFrames 0.8.181，它会自己准备浏览器。
-- 一把 Evolink key：8 家选手写程序、旁白配音（通义千问 TTS）、角色草稿（GPT Image）都走它。设环境变量 `EVOLINK_API_KEY`，或者把 key 存进一个文件、用 `EVOLINK_API_KEY_FILE` 指过去（默认找 `~/.config/evolink/api.key`）。脚本不打印 key。
+- 一把 [Evolink](https://evolink.ai/signup?aff=wPdV)（推荐链接）key：8 家选手写程序、旁白配音（通义千问 TTS）、角色草稿（GPT Image）都走它。设环境变量 `EVOLINK_API_KEY`，或者把 key 存进一个文件、用 `EVOLINK_API_KEY_FILE` 指过去（默认找 `~/.config/evolink/api.key`）。脚本不打印 key。
 - 选填：本机的 Codex 和 Claude Code，让 GPT、Claude 用订阅参赛。没有就只比 Evolink 上那几家，或者照 `tools/contest.py` 的 `MODELS` 把 Evolink 上有的 GPT、Claude 型号加进去。
 - 正文字体 Noto Sans SC 按 README「出片」一节的命令下载到 `fonts/`。不下也能出片，正文先用像素字体顶上。
 - 选手程序在 macOS 上跑在 `sandbox-exec` 沙箱里（不能联网、写文件、开子进程）。Linux 上设 `ARENA_NO_SANDBOX=1`，那就没有沙箱，只跑信得过的代码。Windows 没测过。
